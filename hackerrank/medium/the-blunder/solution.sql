@@ -1,5 +1,5 @@
-SELECT (
-    MAX(POPULATION)-
-    MIN(POPULATION)
+SELECT CEIL(
+    avg(Salary)-
+    avg(REPLACE(Salary,'0',''))
 )
-FROM CITY
+from EMPLOYEES;
