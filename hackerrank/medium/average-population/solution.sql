@@ -1,3 +1,2 @@
-select avg(POPULATION)
-FROM CITY 
- WHERE DISTRICT ='California';
+select round(avg(POPULATION))
+FROM CITY;
