@@ -1,5 +1,6 @@
 /*
 Enter your query here.
 */
-select round(sum(LAT_N),2),ROUND(SUM(LONG_W),2)
-FROM STATION;
+SELECT ROUND(SUM(LAT_N),4)
+FROM STATION
+WHERE  38.7880<LAT_N AND LAT_N<137.2345 ;
