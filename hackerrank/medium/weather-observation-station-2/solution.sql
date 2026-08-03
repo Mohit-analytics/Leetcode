@@ -1,4 +1,8 @@
-SELECT *
-FROM CITY
-WHERE COUNTRYCODE = 'USA'
-  AND POPULATION > 100000;
+SELECT 
+max(salary*months),
+count(*)
+from Employee 
+where salary*months=(
+    select max(salary*months)
+    from Employee
+);
