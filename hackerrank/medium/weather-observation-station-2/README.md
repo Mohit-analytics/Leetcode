@@ -1,4 +1,4 @@
-# Revising the Select Query I
+# Top Earners
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -34,13 +34,17 @@ where $lat$ is the sum of all values in *LAT\_N* and $lon$ is the sum of all val
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-01T08:42:41.208Z  
+**Submitted:** 2026-08-03T06:10:05.355Z  
 
 ```sql
-SELECT *
-FROM CITY
-WHERE COUNTRYCODE = 'USA'
-  AND POPULATION > 100000;
+SELECT 
+max(salary*months),
+count(*)
+from Employee 
+where salary*months=(
+    select max(salary*months)
+    from Employee
+);
 
 ```
 
