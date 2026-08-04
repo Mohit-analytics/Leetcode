@@ -1,4 +1,4 @@
-# Average Population of Each Continent
+# The Report
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -64,14 +64,25 @@ So, the following students got <em>8</em>, <em>9</em> or <em>10</em> grades:
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-04T05:56:09.787Z  
+**Submitted:** 2026-08-04T06:39:23.199Z  
 
 ```sql
-select CO.CONTINENT, FLOOR(AVG(CT.POPULATION))
-FROM CITY CT
-JOIN COUNTRY CO
-ON CT.COUNTRYCODE=CO.CODE
-GROUP BY CO.CONTINENT;
+select 
+case 
+when g.Grade >=8 then s.Name
+else null end as Name,
+g.Grade,
+s.Marks
+from Students s
+join Grades g
+on s.Marks between g.Min_Mark and g.Max_Mark
+order by g.Grade desc,
+case when g.Grade >=  8 then s.Name end asc,
+case when g.Grade <8 then s.Marks end asc;
+
+
+
+
 
 ```
 
