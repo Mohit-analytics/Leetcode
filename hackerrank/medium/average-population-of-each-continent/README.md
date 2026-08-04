@@ -1,4 +1,4 @@
-# African Cities
+# Average Population of Each Continent
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -28,14 +28,14 @@ The **CITY** and **COUNTRY** tables are described as follows:
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-04T05:45:25.897Z  
+**Submitted:** 2026-08-04T05:55:59.643Z  
 
 ```sql
-SELECT CT.NAME
+select CO.CONTINENT, FLOOR(AVG(CT.POPULATION))
 FROM CITY CT
-LEFT JOIN COUNTRY CO
-ON CT.COUNTRYCODE = CO.CODE
-WHERE CO.CONTINENT = 'Africa';
+JOIN COUNTRY CO
+ON CT.COUNTRYCODE=CO.CODE
+GROUP BY CO.CONTINENT;
 
 ```
 
