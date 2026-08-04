@@ -1,4 +1,4 @@
-# New Companies
+# Population Census
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -26,27 +26,14 @@ The **CITY** and **COUNTRY** tables are described as follows:
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-31T06:23:29.467Z  
+**Submitted:** 2026-08-04T05:42:27.158Z  
 
 ```sql
-select 
-c.company_code,
-c.founder,
-count(distinct(lm.lead_manager_code)),
-count(distinct(sm.senior_manager_code)),
-count(distinct(m.manager_code)),
-count(distinct(e.employee_code))
-from Company c
-left join Lead_Manager lm
-on c.company_code=lm.company_code
-left join Senior_Manager sm
-on c.company_code=sm.company_code
-left join Manager m
-on c.company_code=m.company_code
-left join  Employee e
-on c.company_code = e.company_code
-group by  c.company_code, c.founder
-order by c.company_code;
+select sum(ct.POPULATION)
+FROM CITY ct
+left join COUNTRY co
+ON ct.COUNTRYCODE = co.CODE
+WHERE CONTINENT ='Asia';
 
 ```
 
