@@ -1,4 +1,4 @@
-# Population Census
+# African Cities
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -26,14 +26,14 @@ The **CITY** and **COUNTRY** tables are described as follows:
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-04T05:42:27.158Z  
+**Submitted:** 2026-08-04T05:45:20.894Z  
 
 ```sql
-select sum(ct.POPULATION)
-FROM CITY ct
-left join COUNTRY co
-ON ct.COUNTRYCODE = co.CODE
-WHERE CONTINENT ='Asia';
+SELECT CT.NAME
+FROM CITY CT
+LEFT JOIN COUNTRY CO
+ON CT.COUNTRYCODE = CO.CODE
+WHERE CO.CONTINENT = 'Africa';
 
 ```
 
